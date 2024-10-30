@@ -6,22 +6,10 @@
   --primary-color: #1e90ff;
 }
 
-.dark-theme {
+.light-theme {
   --background-color: white;
   --text-color: black;
   --primary-color: #007bff;
-}
-
-#moon-icon {
-  display: none;
-}
-
-body.dark-theme #sun-icon {
-  display: none;
-}
-
-body.dark-theme #moon-icon {
-  display: block;
 }
 
 #theme-toggle {
@@ -42,23 +30,97 @@ body.dark-theme #moon-icon {
   border: var(--text-color) solid 3px;
   border-radius: 50%;
   padding: 3px;
+  overflow: hidden;
+}
+
+#theme-toggle img {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  transition: stroke 0.5s ease;
 }
 
 #theme-toggle:hover {
   transform: scale(1.1);
 }
 
-#theme-toggle img {
-  width: 34px;
-  height: 34px;
-  transition: opacity 0.3s ease;
+@keyframes moon-rise {
+  from {
+    transform: translate(-50%, 50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes moon-set {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(50%, 50%);
+    opacity: 0;
+  }
+}
+
+@keyframes sun-rise {
+  from {
+    transform: translate(-50%, 50%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes sun-set {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(50%, 50%);
+    opacity: 0;
+  }
+}
+
+#moon-icon {
+  transform: translate(-50%, 50%);
+  opacity: 0;
+  animation: none;
+}
+
+#sun-icon {
+  transform: translate(0, 0);
+  opacity: 1;
+  animation: none;
+}
+
+body.light-theme #moon-icon {
+  animation: moon-rise 0.8s forwards;
+}
+
+body.light-theme #sun-icon {
+  animation: sun-set 0.8s forwards;
+}
+
+body:not(.light-theme) #moon-icon {
+  animation: moon-set 0.8s forwards;
+}
+
+body:not(.light-theme) #sun-icon {
+  animation: sun-rise 0.8s forwards;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .container {
