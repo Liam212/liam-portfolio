@@ -17,6 +17,21 @@
           <img src="assets/sun.svg" alt="sun" id="sun-icon" />
         </button>
         <h1>Liam Stout</h1>
+        <div class="social">
+          <a href="https://github.com/liam212" target="_blank">
+            <img
+              id="github-icon"
+              src="assets/github-mark-white.svg"
+              alt="github"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/liam-stout-860070232/"
+            target="_blank"
+          >
+            <img src="assets/linkedin.svg" alt="linkedin" />
+          </a>
+        </div>
       </div>
       <div class="about">
         <p>
@@ -26,14 +41,47 @@
       </div>
       <div class="content">
         <div class="projects">
-          <div class="project"></div>
+          <h3>projects</h3>
+          <div class="project">
+            <h4>Nutrition Buddy</h4>
+            <div></div>
+            <p>
+              Nutrition Buddy is a nutrition tracking app. It uses OpenFoodFacts
+              API to fetch nutrition data for food items.
+            </p>
+          </div>
+          <div class="project">
+            <h4>Zorda</h4>
+            <div></div>
+            <p>
+              Zorda is a universal app on your customer's phone, rather than
+              many. A mobile order and pay service for your venue. The USP with
+              zorda is that venue managers have complete control over their
+              venue with the Zorda Panel App.
+            </p>
+          </div>
+          <div class="project">
+            <h4>YouTube Subscriptions Simplified</h4>
+            <div></div>
+            <p>
+              Simplifies the YouTube Subscriptions page by removing distracting
+              elements and adjusting layout.
+            </p>
+          </div>
         </div>
+      </div>
+      <div class="footer">
+        <p>liamstout.com</p>
       </div>
     </div>
     <script>
       const toggleButton = document.getElementById('theme-toggle')
+      const githubIcon = document.getElementById('github-icon')
       toggleButton.addEventListener('click', () => {
         document.body.classList.toggle('light-theme')
+        githubIcon.src = document.body.classList.contains('light-theme')
+          ? 'assets/github-mark.svg'
+          : 'assets/github-mark-white.svg'
       })
     </script>
   </body>

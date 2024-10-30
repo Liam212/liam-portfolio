@@ -4,12 +4,16 @@
   --background-color: #121212;
   --text-color: white;
   --primary-color: #1e90ff;
+  --secondary-color: #007bff;
+  --card-background-color: #1e1e1e;
 }
 
 .light-theme {
   --background-color: white;
   --text-color: black;
   --primary-color: #007bff;
+  --secondary-color: #1e90ff;
+  --card-background-color: #e6e6e6;
 }
 
 #theme-toggle {
@@ -163,7 +167,60 @@ body {
 
 .content {
   display: flex;
-  justify-content: space-between;
+  max-width: 600px;
+  padding-top: 120px;
+  width: 100%;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.projects h3 {
+  font-size: 26px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: var(--card-background-color);
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.project h4 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: start;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.project div {
+  width: 75%;
+  height: 1px;
+  border-radius: 5px;
+  background-color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.project p {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: start;
+  color: var(--text-color);
 }
 
 @media (max-width: 768px) {
@@ -174,4 +231,59 @@ body {
     font-size: 40px;
     margin-bottom: 10px;
   }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.footer p {
+  font-size: 16px;
+  margin-top: 10px;
+  text-align: start;
+  color: var(--text-color);
+}
+
+.footer a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.social a:hover {
+  transform: scale(1.1);
+}
+
+.social img {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
 }
