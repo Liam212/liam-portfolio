@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Liam Stout</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <button id="theme-toggle" aria-label="Toggle Theme">
+          <img src="assets/moon.svg" alt="moon" id="moon-icon" />
+          <img src="assets/sun.svg" alt="sun" id="sun-icon" />
+        </button>
+        <h1>Liam Stout</h1>
+      </div>
+      <div class="about">
+        <p>
+          Hey! I'm Liam — I've designed, developed and launched products in a
+          range of industries solving a variety of problems and challenges.
+        </p>
+      </div>
+      <div class="content">
+        <div class="projects">
+          <div class="project"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const toggleButton = document.getElementById('theme-toggle')
+      toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme')
+      })
+    </script>
+  </body>
+</html>

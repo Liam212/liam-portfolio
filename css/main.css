@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --background-color: #121212;
+  --text-color: white;
+  --primary-color: #1e90ff;
+}
+
+.dark-theme {
+  --background-color: white;
+  --text-color: black;
+  --primary-color: #007bff;
+}
+
+#moon-icon {
+  display: none;
+}
+
+body.dark-theme #sun-icon {
+  display: none;
+}
+
+body.dark-theme #moon-icon {
+  display: block;
+}
+
+#theme-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  transition: transform 0.3s ease;
+  border: var(--text-color) solid 3px;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+#theme-toggle img {
+  width: 34px;
+  height: 34px;
+  transition: opacity 0.3s ease;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  padding-top: 225px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.header button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header button:hover {
+  background-color: var(--primary-color);
+}
+
+.about {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+  .header h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+}
