@@ -223,6 +223,20 @@ body {
   color: var(--text-color);
 }
 
+.project a {
+  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.project a:hover {
+  color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 10px;
