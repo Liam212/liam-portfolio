@@ -5,16 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Liam Stout</title>
-    <!-- link favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.svg" />
     <link rel="stylesheet" href="css/main.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.181.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.181.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="javascript/main.js"></script>
   </head>
   <body>
+    <canvas id="bg"></canvas>
     <div class="container">
       <div class="header">
-        <button id="theme-toggle" aria-label="Toggle Theme">
+        <button
+          id="theme-toggle"
+          class="control-button"
+          aria-label="Toggle Theme"
+        >
           <img src="assets/moon.svg" alt="moon" id="moon-icon" />
           <img src="assets/sun.svg" alt="sun" id="sun-icon" />
+        </button>
+        <button
+          id="animation-toggle"
+          class="control-button"
+          aria-label="Toggle Animation"
+        >
+          <img src="assets/pause.svg" alt="pause" id="pause-icon" />
+          <img src="assets/play.svg" alt="play" id="play-icon" />
         </button>
         <h1>Liam Stout</h1>
         <div class="social">
@@ -42,9 +63,6 @@
       <div class="content">
         <div class="projects">
           <h3>projects</h3>
-          <p>
-            Note: For the most part, these projects are unmaintained due to other focuses, so their reliability may vary.
-          </p>
           <div class="project">
             <h4>Nutrition Buddy</h4>
             <div></div>
@@ -124,15 +142,5 @@
         <p>liamstout.com</p>
       </div>
     </div>
-    <script>
-      const toggleButton = document.getElementById('theme-toggle')
-      const githubIcon = document.getElementById('github-icon')
-      toggleButton.addEventListener('click', () => {
-        document.body.classList.toggle('light-theme')
-        githubIcon.src = document.body.classList.contains('light-theme')
-          ? 'assets/github-mark.svg'
-          : 'assets/github-mark-white.svg'
-      })
-    </script>
   </body>
 </html>
