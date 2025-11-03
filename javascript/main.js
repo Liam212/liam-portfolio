@@ -62,10 +62,10 @@ let isAnimationPaused = false;
 function animate() {
     if (!isAnimationPaused) {
         animationFrameId = requestAnimationFrame(animate);
-        nodes.rotation.x += 0.0005;
-        nodes.rotation.y += 0.001;
-        lines.rotation.x += 0.0005;
-        lines.rotation.y += 0.001;
+        nodes.rotation.x += 0.00005;
+        nodes.rotation.y += 0.0001;
+        lines.rotation.x += 0.00005;
+        lines.rotation.y += 0.0001;
     }
     renderer.render(scene, camera);
 }
@@ -77,35 +77,41 @@ window.addEventListener("resize", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-// Theme toggle logic
-
+// Define theme affected elements
 const themeToggleButton = document.getElementById('theme-toggle')
 const animationToggleButton = document.getElementById('animation-toggle')
 const pauseIcon = document.getElementById('pause-icon')
 const playIcon = document.getElementById('play-icon')
 const githubIcon = document.getElementById('github-icon')
 
-function updateTheme() {
+function updateThemedElements() {
+    // check if light theme is active
     const isLightTheme = document.body.classList.contains('light-theme')
-    renderer.setClearColor(isLightTheme ? 0xffffff : 0x0e0e0e)
 
-    renderer.render(scene, camera)
-}
+    // change threejs background color
+    renderer.setClearColor(isLightTheme ? 0xffffff : 0x0e0e0e, 0.2)
 
-themeToggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('light-theme')
-
+    // change github icon to respect theme
     githubIcon.src = document.body.classList.contains('light-theme')
         ? 'assets/github-mark.svg'
         : 'assets/github-mark-white.svg'
 
+    // invert play icon if darkmode is active
     pauseIcon.style = document.body.classList.contains('light-theme') ? 'filter: invert(0);' : 'filter: invert(1);'
     playIcon.style = document.body.classList.contains('light-theme') ? 'filter: invert(0);' : 'filter: invert(1);'
 
-    updateTheme()
+    // force scene rerender
+    renderer.render(scene, camera)
+}
+
+// Theme Change Listener
+themeToggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme')
+
+    updateThemedElements()
 })
 
-// Animation toggle logic
+// Animation Toggle Listener
 animationToggleButton.addEventListener('click', () => {
     isAnimationPaused = !isAnimationPaused;
     document.body.classList.toggle('animation-paused');
@@ -117,5 +123,4 @@ animationToggleButton.addEventListener('click', () => {
     }
 });
 
-pauseIcon.style = document.body.classList.contains('light-theme') ? 'filter: invert(0);' : 'filter: invert(1);'
-playIcon.style = document.body.classList.contains('light-theme') ? 'filter: invert(0);' : 'filter: invert(1);'
+updateThemedElements();
