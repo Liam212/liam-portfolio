@@ -194,7 +194,7 @@ body {
   font-weight: bold;
 }
 
-.project div {
+.divider {
   width: 75%;
   height: 1px;
   border-radius: 5px;
@@ -216,6 +216,13 @@ body {
   transition: transform 0.3s ease;
   text-decoration: none;
   padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.project-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .project a:hover {
